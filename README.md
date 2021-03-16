@@ -1,7 +1,10 @@
 # JavaGettingStarted_ToDoList
 Skeleton for Java for New Engineers to build a console-based ToDo list manager
 
-# Week Four/Five Exercises
+# Week Four - Twelve Exercises
+Fork and use the [JavaGettingStarted_ToDoList](https://github.com/gartee-john-PFG/JavaGettingStarted_ToDoList) repository as a starting point
+Follow the instructions in the original JavaGettingStarted *ToDoProject.md* file.
+
 ## Write a console-based program
 * Create a program in this project
     * this is a simple, console-based program
