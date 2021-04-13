@@ -12,5 +12,5 @@ public class App {
         String input = MainMenu.mainScreenDisplay();
         MainMenu.processMenuChoice(input);
     }
-
 }
+

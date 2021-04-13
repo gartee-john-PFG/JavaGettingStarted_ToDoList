@@ -11,22 +11,16 @@ import java.util.Scanner;
 public class Add {
 
     public static void addToDoList() throws FileNotFoundException {
-
+        PrintStream original = System.out;
         String fileName = getFileName();
         String data = getListText();
-
         String title = fileName + ".txt";
 
         displayFileTitleLocation(title);
         createFolderSaveFile(title);
         addListTextToFile(data, title);
 
-        System.out.println(data);
-    }
-
-    private static void addListTextToFile(String data, String title) throws FileNotFoundException {
-        PrintStream writeToFile = new PrintStream("C:\\ToDoList_SavedFiles\\" + title);
-        writeToFile.append(data);
+        System.setOut(original);
     }
 
     private static void createFolderSaveFile(String title) throws FileNotFoundException {
@@ -41,6 +35,11 @@ public class Add {
         System.setOut(out);
     }
 
+    private static void addListTextToFile(String data, String title) throws FileNotFoundException {
+        PrintStream writeToFile = new PrintStream("C:\\ToDoList_SavedFiles\\" + title);
+        writeToFile.append(data);
+    }
+
     private static void displayFileTitleLocation(String title) {
         System.out.println("ToDo List File:  " + title + "  saved at  C:\\ToDoList_SavedFiles\\");
     }
@@ -49,6 +48,7 @@ public class Add {
         System.out.println("Enter To Do List Text");
         Scanner ln = new Scanner(System.in);
         String data = ln.nextLine();
+        //ln.close();
         return data;
     }
 
@@ -58,5 +58,4 @@ public class Add {
         String fileName = ss.nextLine();
         return fileName;
     }
-
 }

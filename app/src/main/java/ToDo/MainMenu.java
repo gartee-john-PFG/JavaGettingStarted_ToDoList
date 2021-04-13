@@ -6,15 +6,14 @@ public class MainMenu {
 
     public static String mainScreenDisplay() {
         Scanner s = new Scanner(System.in);
-        System.out.println("                          Main Menu");
         System.out.println("\n");
-        System.out.println("1.  Open ToDo List");
-        System.out.println("2.  Display ToDo List");
-        System.out.println("3.  Add a ToDo List");
-        System.out.println("4.  Edit ToDo List");
-        System.out.println("5.  Delete ToDo List");
-        System.out.println("6.  Save ToDo List");
-        System.out.println("7.  Exit");
+        System.out.println("****  MAIN MENU  ****");
+//        System.out.println("\n");
+        System.out.println("1. Display a ToDo List");
+        System.out.println("2. Add ToDo List");
+        System.out.println("3. Edit ToDo List");
+        System.out.println("4. Delete ToDo List");
+        System.out.println("5. Exit");
         System.out.println("\n");
         System.out.println("Select Option");
         String u = s.nextLine();
@@ -24,42 +23,41 @@ public class MainMenu {
     static void processMenuChoice(String input) {
         switch (input) {
             case "1":
-//                Open ToDo List
-                System.out.println(input + " was returned");
-                break;
-            case "2":
 //                Display ToDo List
-                System.out.println("Display contents of ToDoList.txt file");
+                System.out.println(input + " was returned - DISPLAY");
                 try {
                     Display.displayToDoList();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                CallMainMenu.returnToMainMenu();
                 break;
-            case "3":
+            case "2":
 //                Add a ToDo List
-                //System.out.println(input + " was returned");
+                System.out.println(input + " was returned - ADD");
                 try {
                     Add.addToDoList();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                CallMainMenu.returnToMainMenu();
+                break;
+            case "3":
+//                Edit ToDo List
+                System.out.println(input + " was returned - EDIT");
+                System.out.println("Edit operation is still under construction.");
+                CallMainMenu.returnToMainMenu();
                 break;
             case "4":
-//                Edit ToDo List
-                System.out.println(input + " was returned");
+//                Delete ToDo List
+                System.out.println(input + " was returned - DELETE");
+                System.out.println("Delete operation is still under construction.");
+                CallMainMenu.returnToMainMenu();
                 break;
             case "5":
-//                Delete ToDo List
-                System.out.println(input + " was returned");
-                break;
-            case "6":
-//                Save ToDo List
-                System.out.println(input + " was returned");
-                break;
-            case "7":
 //                Exit
-                System.out.println(input + " was returned");
+                System.out.println(input + " was returned - EXIT");
+                System.exit(0);
                 break;
         }
     }
