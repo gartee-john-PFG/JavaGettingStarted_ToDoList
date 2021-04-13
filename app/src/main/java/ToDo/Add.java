@@ -2,28 +2,61 @@ package ToDo;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Add {
 
     public static void addToDoList() throws FileNotFoundException {
 
-        //Console input to define name of list
+        String fileName = getFileName();
+        String data = getListText();
+
+        String title = fileName + ".txt";
+
+        displayFileTitleLocation(title);
+        createFolderSaveFile(title);
+        addListTextToFile(data, title);
+
+        System.out.println(data);
+    }
+
+    private static void addListTextToFile(String data, String title) throws FileNotFoundException {
+        PrintStream writeToFile = new PrintStream("C:\\ToDoList_SavedFiles\\" + title);
+        writeToFile.append(data);
+    }
+
+    private static void createFolderSaveFile(String title) throws FileNotFoundException {
+        try {
+            Files.createDirectories(Paths.get("C:\\ToDoList_SavedFiles\\"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        PrintStream out = new PrintStream(
+                new FileOutputStream("C:\\ToDoList_SavedFiles\\" + title));
+        System.setOut(out);
+    }
+
+    private static void displayFileTitleLocation(String title) {
+        System.out.println("ToDo List File:  " + title + "  saved at  C:\\ToDoList_SavedFiles\\");
+    }
+
+    private static String getListText() {
+        System.out.println("Enter To Do List Text");
+        Scanner ln = new Scanner(System.in);
+        String data = ln.nextLine();
+        return data;
+    }
+
+    private static String getFileName() {
         Scanner ss = new Scanner(System.in);
         System.out.println("Enter name for new ToDo List");
         String fileName = ss.nextLine();
-
-        //Need to create subfolder if it doesn't already exist. For now, it assumes it does exist
-
-        System.out.println("ToDo List File:  " + fileName + ".txt  saved at  C:\\ToDoList_SavedFiles\\");
-
-        //save file - nice to have - let user pick where to store.
-        PrintStream out = new PrintStream(
-                new FileOutputStream("C:\\ToDoList_SavedFiles\\" +fileName +".txt"));
-        System.setOut(out);
-
-        //Console input to define list contents
-        //done - return to main menu
+        return fileName;
     }
+
 }
