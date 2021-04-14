@@ -1,5 +1,6 @@
 package ToDo;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -47,7 +48,11 @@ public class Menu {
             case "3":
 //                Edit ToDo List
                 System.out.println(input + " was returned - EDIT");
-                System.out.println("Edit operation is still under construction. Returning to Main Menu.");
+                try {
+                    Edit.editToDoList();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 CallMainMenu.returnToMainMenu();
                 break;
             case "4":

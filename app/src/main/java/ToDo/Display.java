@@ -31,7 +31,7 @@ public class Display {
 
     private static String getFileName() {
         Scanner ss = new Scanner(System.in);
-        System.out.println("Enter name (prefix) of file to display");
+        System.out.println("Enter name (prefix) of file to display, then press Enter.");
         String fileToOpen;
         fileToOpen = ss.nextLine();
         return fileToOpen;

@@ -18,10 +18,9 @@ public class Delete {
 
         try {
             Files.delete(fileToDeletePath);
+            System.out.println("The file " + title + " has been Deleted successfully.");
         } catch (IOException e) {
-            System.out.println("File name not found; cannot delete. Returning to Main Menu.");
-            CallMainMenu.returnToMainMenu();;
+            System.out.println("File name not found or cannot be deleted at this time. Please try again later. Returning to Main Menu.");
         }
-        System.out.println("The file " + title + " has been Deleted successfully.");
     }
 }

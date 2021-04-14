@@ -46,7 +46,7 @@ public class Add {
     }
 
     private static String getListText() {
-        System.out.println("Enter To Do List Text");
+        System.out.println("Enter To Do List Text. Text should be entered on a single line. When done, press Enter.");
         Scanner ln = new Scanner(System.in);
         String data;
         data = ln.nextLine();
@@ -55,7 +55,7 @@ public class Add {
 
     private static String getFileName() {
         Scanner ss = new Scanner(System.in);
-        System.out.println("Enter name for new ToDo List");
+        System.out.println("Enter name for new ToDo List, then press Enter.");
         String fileName;
         fileName = ss.nextLine();
         return fileName;
