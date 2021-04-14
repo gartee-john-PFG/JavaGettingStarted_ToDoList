@@ -9,8 +9,11 @@ public class App {
     }
 
     public static void main(String[] args) {
-        String input = Menu.mainScreenDisplay();
-        Menu.processMenuChoice(input);
+        String input;
+        do {
+            input = Menu.mainScreenDisplay();
+        } while (Menu.processMenuChoice(input));
+        System.exit(0);
     }
 
 }

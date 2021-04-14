@@ -23,7 +23,8 @@ public class Menu {
         return u;
     }
 
-    public static void processMenuChoice(String input) {
+    public static boolean processMenuChoice(String input) {
+        boolean returnCode = true;
         switch (input) {
             case "1":
 //                Display ToDo List
@@ -33,7 +34,6 @@ public class Menu {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                CallMainMenu.returnToMainMenu();
                 break;
             case "2":
 //                Add a ToDo List
@@ -43,7 +43,6 @@ public class Menu {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                CallMainMenu.returnToMainMenu();
                 break;
             case "3":
 //                Edit ToDo List
@@ -53,7 +52,6 @@ public class Menu {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                CallMainMenu.returnToMainMenu();
                 break;
             case "4":
 //                Delete ToDo List
@@ -63,35 +61,17 @@ public class Menu {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                CallMainMenu.returnToMainMenu();
                 break;
             case "5":
+            case "Exit":
+            case "exit":
 //                Exit
                 System.out.println(input + " was returned - closing application.");
-                System.exit(0);
-                break;
-            case "Exit":
-//                Exit
-                System.out.println(input + " was returned - exiting application.");
-                System.exit(0);
-                break;
-            case "exit":
-//                exit
-                System.out.println(input + " was returned - shutting down application.");
-                System.exit(0);
-                break;
-            case "menu":
-//                Return to Main Menu ToDo List
-                System.out.println(input + " was returned - RETURN TO MAIN MENU");
-                CallMainMenu.returnToMainMenu();
-                break;
-            case "Menu":
-//                Return to Main Menu ToDo List
-                System.out.println(input + " was returned - Return to Main Menu");
-                CallMainMenu.returnToMainMenu();
+                returnCode = false;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + input);
         }
+        return returnCode;
     }
 }
