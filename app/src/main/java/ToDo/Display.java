@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Display {
-    public static void displayToDoList() throws Exception {
+    public static void displayToDoList() {
         String fileToOpen = getFileName();
         String title = fileToOpen + ".txt";
 
@@ -32,7 +32,8 @@ public class Display {
     private static String getFileName() {
         Scanner ss = new Scanner(System.in);
         System.out.println("Enter name (prefix) of file to display");
-        String fileToOpen = ss.nextLine();
+        String fileToOpen;
+        fileToOpen = ss.nextLine();
         return fileToOpen;
     }
 }

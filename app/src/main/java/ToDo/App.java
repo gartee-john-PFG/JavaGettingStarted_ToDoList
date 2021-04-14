@@ -3,10 +3,6 @@
  */
 package ToDo;
 
-
-import java.io.*;
-import java.util.Scanner;
-
 public class App {
     public String getGreeting() {
         return "ToDo List Manager";

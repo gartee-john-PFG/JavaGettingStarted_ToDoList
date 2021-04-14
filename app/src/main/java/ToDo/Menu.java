@@ -17,7 +17,8 @@ public class Menu {
         System.out.println("5. Exit");
         System.out.println("\n");
         System.out.println("Select Option");
-        String u = s.nextLine();
+        String u;
+        u = s.nextLine();
         return u;
     }
 
@@ -52,7 +53,6 @@ public class Menu {
             case "4":
 //                Delete ToDo List
                 System.out.println(input + " was returned - DELETE");
-
                 try {
                     Delete.deleteToDoList();
                 } catch (IOException e) {
@@ -62,17 +62,17 @@ public class Menu {
                 break;
             case "5":
 //                Exit
-                System.out.println(input + " was returned - EXIT");
+                System.out.println(input + " was returned - closing application.");
                 System.exit(0);
                 break;
             case "Exit":
 //                Exit
-                System.out.println(input + " was returned - EXIT");
+                System.out.println(input + " was returned - exiting application.");
                 System.exit(0);
                 break;
             case "exit":
-//                Exit
-                System.out.println(input + " was returned - EXIT");
+//                exit
+                System.out.println(input + " was returned - shutting down application.");
                 System.exit(0);
                 break;
             case "menu":
@@ -82,9 +82,11 @@ public class Menu {
                 break;
             case "Menu":
 //                Return to Main Menu ToDo List
-                System.out.println(input + " was returned - RETURN TO MAIN MENU");
+                System.out.println(input + " was returned - Return to Main Menu");
                 CallMainMenu.returnToMainMenu();
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + input);
         }
     }
 }

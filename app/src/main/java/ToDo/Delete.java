@@ -1,6 +1,5 @@
 package ToDo;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,7 +16,12 @@ public class Delete {
         String title = name + ".txt";
         Path fileToDeletePath = Paths.get("C:\\ToDoList_SavedFiles\\" + title);
 
-        Files.delete(fileToDeletePath);
+        try {
+            Files.delete(fileToDeletePath);
+        } catch (IOException e) {
+            System.out.println("File name not found; cannot delete. Returning to Main Menu.");
+            CallMainMenu.returnToMainMenu();;
+        }
         System.out.println("The file " + title + " has been Deleted successfully.");
     }
 }

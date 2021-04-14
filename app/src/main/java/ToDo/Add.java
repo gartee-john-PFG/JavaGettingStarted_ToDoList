@@ -48,15 +48,16 @@ public class Add {
     private static String getListText() {
         System.out.println("Enter To Do List Text");
         Scanner ln = new Scanner(System.in);
-        String data = ln.nextLine();
-        //ln.close();
+        String data;
+        data = ln.nextLine();
         return data;
     }
 
     private static String getFileName() {
         Scanner ss = new Scanner(System.in);
         System.out.println("Enter name for new ToDo List");
-        String fileName = ss.nextLine();
+        String fileName;
+        fileName = ss.nextLine();
         return fileName;
     }
 }
