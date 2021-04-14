@@ -9,6 +9,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        String input = Menu.mainScreenDisplay();
+        Menu.processMenuChoice(input);
     }
+
 }
