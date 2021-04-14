@@ -1,5 +1,6 @@
 package ToDo;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -51,13 +52,38 @@ public class Menu {
             case "4":
 //                Delete ToDo List
                 System.out.println(input + " was returned - DELETE");
-                System.out.println("Delete operation is still under construction. Returning to Main Menu.");
+
+                try {
+                    Delete.deleteToDoList();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 CallMainMenu.returnToMainMenu();
                 break;
             case "5":
 //                Exit
                 System.out.println(input + " was returned - EXIT");
                 System.exit(0);
+                break;
+            case "Exit":
+//                Exit
+                System.out.println(input + " was returned - EXIT");
+                System.exit(0);
+                break;
+            case "exit":
+//                Exit
+                System.out.println(input + " was returned - EXIT");
+                System.exit(0);
+                break;
+            case "menu":
+//                Return to Main Menu ToDo List
+                System.out.println(input + " was returned - RETURN TO MAIN MENU");
+                CallMainMenu.returnToMainMenu();
+                break;
+            case "Menu":
+//                Return to Main Menu ToDo List
+                System.out.println(input + " was returned - RETURN TO MAIN MENU");
+                CallMainMenu.returnToMainMenu();
                 break;
         }
     }

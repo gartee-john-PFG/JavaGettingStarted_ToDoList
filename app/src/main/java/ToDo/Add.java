@@ -27,6 +27,7 @@ public class Add {
         try {
             Files.createDirectories(Paths.get("C:\\ToDoList_SavedFiles\\"));
         } catch (IOException e) {
+            System.out.println("Unable to create folder C:\\ToDoList_SavedFiles\\.");
             e.printStackTrace();
         }
 

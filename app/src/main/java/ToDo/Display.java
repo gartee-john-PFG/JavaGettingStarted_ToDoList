@@ -24,7 +24,7 @@ public class Display {
         Scanner sc = new Scanner(file);
         StringBuffer sb = new StringBuffer();
         while (sc.hasNext()) {
-            sb.append(" " + sc.nextLine());
+            sb.append(" ").append(sc.nextLine());
         }
         System.out.println(sb);
     }
