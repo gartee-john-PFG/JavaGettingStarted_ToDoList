@@ -9,8 +9,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        String input = MainMenu.mainScreenDisplay();
-        MainMenu.processMenuChoice(input);
+        String input = Menu.mainScreenDisplay();
+        Menu.processMenuChoice(input);
     }
 }
 

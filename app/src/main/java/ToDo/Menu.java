@@ -2,7 +2,7 @@ package ToDo;
 
 import java.util.Scanner;
 
-public class MainMenu {
+public class Menu {
 
     public static String mainScreenDisplay() {
         Scanner s = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class MainMenu {
         return u;
     }
 
-    static void processMenuChoice(String input) {
+    public static void processMenuChoice(String input) {
         switch (input) {
             case "1":
 //                Display ToDo List
@@ -45,13 +45,13 @@ public class MainMenu {
             case "3":
 //                Edit ToDo List
                 System.out.println(input + " was returned - EDIT");
-                System.out.println("Edit operation is still under construction.");
+                System.out.println("Edit operation is still under construction. Returning to Main Menu.");
                 CallMainMenu.returnToMainMenu();
                 break;
             case "4":
 //                Delete ToDo List
                 System.out.println(input + " was returned - DELETE");
-                System.out.println("Delete operation is still under construction.");
+                System.out.println("Delete operation is still under construction. Returning to Main Menu.");
                 CallMainMenu.returnToMainMenu();
                 break;
             case "5":

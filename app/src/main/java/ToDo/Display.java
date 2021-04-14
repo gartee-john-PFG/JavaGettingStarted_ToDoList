@@ -11,7 +11,12 @@ public class Display {
 
         System.out.println("\n");
         System.out.println("Displaying ToDoList for " + title + ":");
-        showFileChosen(title);
+        try {
+            showFileChosen(title);
+        } catch (Exception e) {
+            System.out.println("File name not found. Returning to Main Menu.");
+            CallMainMenu.returnToMainMenu();
+        }
     }
 
     private static void showFileChosen(String title) throws FileNotFoundException {
